@@ -1,0 +1,31 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.text-pink{
+    color : #ff1448 !important;
+}
+.nav-link{
+    letter-spacing: 2px;
+}
+footer {
+    background-color: #0d243d;
+    height: 230px;
+}
+header{
+    z-index: 1000;
+}
+.dishCard{
+    height: 250px;
+}
