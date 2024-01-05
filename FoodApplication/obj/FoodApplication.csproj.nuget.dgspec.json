@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\FoodApplicationWebsite\\FoodApplication\\FoodApplication.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\FoodApp\\FoodApplication\\FoodApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\FoodApplicationWebsite\\FoodApplication\\FoodApplication.csproj": {
+    "C:\\Users\\HP\\source\\repos\\FoodApp\\FoodApplication\\FoodApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\FoodApplicationWebsite\\FoodApplication\\FoodApplication.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\FoodApp\\FoodApplication\\FoodApplication.csproj",
         "projectName": "FoodApplication",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\FoodApplicationWebsite\\FoodApplication\\FoodApplication.csproj",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\FoodApp\\FoodApplication\\FoodApplication.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\FoodApplicationWebsite\\FoodApplication\\obj\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\FoodApp\\FoodApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
