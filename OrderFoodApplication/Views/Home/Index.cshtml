@@ -1,0 +1,114 @@
+﻿@model IEnumerable<OrderFoodApplication.Models.Recipe>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row shadow rounded mx-5">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-3">
+                <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
+                    <div class="carousel-inner ml-5">
+                        <div class="carousel-item active">
+                            <img src="~/images/carousel/1.jpg" class="d-block w-100" alt="Recipes" style="max-height: 60vh;">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="~/images/carousel/2.jpg" class="d-block w-100" alt="Recipes" style="max-height: 60vh;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/images/carousel/3.jpg" class="d-block w-100" alt="Recipes" style="max-height: 60vh;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/images/carousel/4.jpg" class="d-block w-100" alt="Recipes" style="max-height: 60vh;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/images/carousel/5.jpg" class="d-block w-100" alt="Recipes" style="max-height: 60vh;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-3">
+            <div class="mb-1">
+            <h2>Get the Best <span class="text-success fst-italic">Food</span> From <span class="text-success">The Best Restaurants.</span></h2>
+            </div>
+            <div class="mb-1 p-3">
+            <span><i class="fa-solid fa-seedling text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark fst-italic">Fresh Food</span>
+            </div>
+            <div class="mb-1 p-3">
+            <span><i class="fa-solid fa-wheat-awn text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark fst-italic">Healthy Meal</span>
+            </div>
+            <div class="mb-1 p-3">
+            <span><i class="fa-solid fa-person-biking text-success mx-2 fs-4"></i></span>
+                <span class="fs-5 text-dark fst-italic">Fastest Delivery</span>
+                <p class="py-2">We Promise to Deliver orders within 30 minutes</p>
+            </div>
+        </div>
+
+
+        <div class="row mt-3 ">
+            <div class="col-12 mb-3">
+                <h2 class="text-dark fst-italic">Today's Special</h2>
+                <div id="todaySpecial" class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Pizza</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcd09" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/gelatin_poke_cake2d07.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Cake</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf3d" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/lasagna266x200c47220b0.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Lasagna</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcb3f" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div id="todaySpecial1" class="row mt-2">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/lambkebabs_2214_16x991b5.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Kebab</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf71" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/3309_MEDIUMc520.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Pasta</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf01" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class=" shadow-rounded card dishCard p-2">
+                        <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/3190843697_88ceb2c27f8217.jpg" alt="dish" />
+                        <div class="card-body">
+                            <p class="card-title fw-bold fs-6 text-dark">Steak</p>
+                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bccd6" class="btn btn-sm btn-primary p-2">Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

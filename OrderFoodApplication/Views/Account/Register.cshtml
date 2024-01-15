@@ -1,0 +1,44 @@
+﻿@model OrderFoodApplication.Models.RegisterViewModel;
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container shadow rounded">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6">
+            <div>
+                <img class="w-100" src="~/images/food.jpg" alt="Pasta" />
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6">
+            <form autocomplete="off" method="post" class="m-3 p-3" action="/Account/Register">
+                <div class="mb-3">
+                    <h2 class="text-pink fst-italic">Register</h2>
+                    <span class="fst-italic text-muted">Create your Account</span>
+                </div>
+                <div class="mb-3" >
+                    @Html.ValidationSummary()
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Name, new {@class="form-control", placeholder="Name"})
+                    <label for="Name" >Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Address, new {@class="form-control", placeholder="Address"})
+                    <label for="Name">Address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder="Email"})
+                    <label for="Name">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Password, new {@class="form-control", placeholder="Password", type="Password"})
+                    <label for="Password">Password</label>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-sm w-100 btn-dark p-2 shadow rounded">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

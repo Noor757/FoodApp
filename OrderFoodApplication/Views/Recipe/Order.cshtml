@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            @Html.Partial("_SearchBar")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <div class="shadow rounded position-sticky" id="recepie-list">
+                <div class="border-bottom border-3 p-2 ">
+                    <h4 class="text-pink text-center fst-italic ">Recepies</h4>
+                    @await Html.PartialAsync("_SideMenu")
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="mb-3">
+                @await Html.PartialAsync("_ShowOrder")
+                <div class="row" id="recipeDetails"></div>
+            </div>
+        </div>
+    </div>
+</div>

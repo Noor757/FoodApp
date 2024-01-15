@@ -1,0 +1,110 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+.text-pink{
+    color: #ff1448 !important;
+}
+
+.nav-link{
+    letter-spacing:2px;
+}
+
+footer {
+    background-color: #0d243d;
+}
+header{
+    z-index:1000;
+}
+.dishCard{
+    height:280px;
+}
+
+.fa-instagram{
+    color:#bc2a8d;
+}
+
+.fa-whatsapp {
+    color: #128C7E;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-envelope {
+    color: #bd4a1c;
+}
+
+#recepie-list {
+    top: 5rem;
+}
+
+#recepie-list ul::-webkit-scrollbar {
+    width: 10px;
+}
+
+#recepie-list ul::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+#recepie-list ul::-webkit-scrollbar-thumb {
+    background-color: #ff1448;
+    border-radius: 10px;
+}
+
+.recepie-item:hover {
+    background-color: #0d243d;
+    border-radius: 10px;
+}
+
+.recepie-item:hover a {
+    color: #ffffff !important;
+}
+
+}
+
+.validation-summary-errors {
+    color: #dc3545;
+}
+
+.validation-summary-errors li {
+    color: #dc3545;
+}
+
+#qty {
+    width:50px;
+    border:none
+}
+#qty:focus{
+    outline:none;
+}
+
+#qtySection{
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.fa-plus, .fa-minus {
+    cursor: pointer;
+}
+#totalAmout, #price{
+    width:60px;
+    border:none;
+}
+#totalAmout:focus, #price:focus{
+    outline:none;
+}

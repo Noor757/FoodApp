@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mb-4">
+            @await Html.PartialAsync("_SearchBar")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <div class="shadow rounded position-sticky" id="recepie-list">
+                <div class="border-bottom border-3 p-2 ">
+                    <h4 class="text-pink text-center fst-italic ">Recepies</h4>
+                    @await Html.PartialAsync("_SideMenu")
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <h2 class="text-dark">Search Recipes</h2>
+            <div class="row" id="searchRecipes">
+                @foreach (var recipe in Model)
+                {
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+                        <div class="shadow rounded p-2">
+                            <div class="card dishCard">
+                                <img src="@recipe.Image_url" class="card-img-top h-50" />
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6 text-dark">@recipe.Title</h5>
+                                    <span class="card-text fs-6">@recipe.Publisher</span>
+                                    <div class="row mt-2">
+                                        <div class="col-3">
+                                            <a href="/Recipe/Order?id=@recipe.Id" class="btn btn-sm btn-primary p-2">Order</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

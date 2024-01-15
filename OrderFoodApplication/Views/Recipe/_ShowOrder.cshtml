@@ -1,0 +1,88 @@
+﻿@model OrderFoodApplication.Models.OrderRecipeDetails
+
+<div class="container-fluid shadow rounded">
+    <div class="row">
+        <div class="col-12 pt-4">
+            <img src="@Model.Image_url" class="w-95" id="order-img" />
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+            <h2 class="text-dark">@Model.Title</h2>
+        </div>
+        
+    </div>
+    <div class="row" >
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ing in Model.Ingredients)
+                        {
+                            <tr>
+                                <td>@ing.Description</td>
+                                <td>@ing.Quantity</td>
+                                <td>@ing.Unit</td>
+                            </tr>
+                        }
+                    </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <form autocomplete="off" method="post">
+                <input type="hidden" value="@Model.Id" name="RecipeId" />
+                <input type="hidden" value="@Model.Title" name="RecipeName" />
+                <input type="hidden" value="@ViewBag.UserId" name="UserId" />
+            <div class="p-2">
+                <p class="text-dark">Bill Details</p>
+                <div class="row border-bottom text-muted">
+                    <label class="col-6 col-form-label">Price</label>
+                    <div class="col-6 text-end">
+                        <i class="fa-solid fa-rupee-sign"></i>
+                        <input id="price" type="text" value="@ViewBag.Price" name="Price" readonly />
+                    </div>
+                </div>
+                <div id="qtySection" class="row border-bottom">
+                    <label class="col-9 col-form-label text-muted">Quantity</label>
+                    <div class="col-3 border border-success border-2 p-1 text-end text-center rounded">
+                        <span onclick="quantity('inc')" ><i class="fa-solid fa-plus text-success"></i></span>
+                        <input type="text" id="qty" class="bg-white text-center text-success fw-bold"
+                                   value="1" name="Quantity" readonly />
+                        <span onclick="quantity('dec')" ><i class="fa-solid fa-minus text-success"></i></span>
+                    </div>
+                </div>
+                <div class="row border-bottom">
+                    <label class="col-6 col-form-label text-muted">Delivery Charges</label>
+                    <label class="col-6 col-form-label text-success fw-bold text-end">Free</label>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label text-muted">Delivery Address</label>
+                    <input type="text" class="form-control" name="Address" value="@ViewBag.Address"/>
+                    @Html.ValidationMessage("Address")
+                </div>
+                <div class="border-bottom border-dark border-1"></div>
+                <div class="row ">
+                    <label class="col-6 col-form-label fs-5 fw-bold">Total</label>
+                    <div class="col-6 col-form-label fs-6  text-end">
+                        <i class="fa-solid fa-rupee-sign"></i>
+                        <input id="totalAmout" type="text" name="TotalAmount" readonly value="@ViewBag.Price" />
+                    </div>
+                </div>
+                <div>
+                    <button type="submit"
+                       class="btn btn-sm btn-success p-2 shadow rounded">Order</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/site.js"></script>

@@ -1,0 +1,40 @@
+﻿@model OrderFoodApplication.Models.LoginViewModel;
+
+@{
+    ViewData["Title"] = "LogIn";
+}
+<div class="container">
+    <div class="row shadow rounded">
+        <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6">
+            <div>
+                <img class="w-100" src="~/images/fresh_fries.jpg"  />
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6">
+            <form autocomplete="off" method="post" class="m-3 p-3">
+            <div class="mb-3">
+                <h2 class="text-pink fst-italic">Login</h2>
+                <span class="fst-italic text-muted">Login into your account</span>
+            </div>
+            <div class="mb-3">
+                @Html.ValidationSummary()
+            </div>
+            <div class="form-floating mb-3">
+                @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder="Email"})
+                <label  for="Email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Password, new {@class="form-control", placeholder="Password", type="password"})
+                <label  for="Password">Password</label>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-sm btn-dark w-100 p-2 shadow rounded">LogIn</button>
+            </div>
+            <div class="mb-3">
+                <span>Don't have an Account?'</span>
+                <a asp-controller="Account" asp-action="Register" class="text-decoration-none text-dark">Register Here</a>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
