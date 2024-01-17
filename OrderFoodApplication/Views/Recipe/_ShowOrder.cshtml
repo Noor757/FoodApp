@@ -38,6 +38,7 @@
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <form autocomplete="off" method="post">
+                <input type="hidden" value="@Model.Image_url" name="Image_url" />
                 <input type="hidden" value="@Model.Id" name="RecipeId" />
                 <input type="hidden" value="@Model.Title" name="RecipeName" />
                 <input type="hidden" value="@ViewBag.UserId" name="UserId" />
@@ -78,7 +79,7 @@
                 </div>
                 <div>
                     <button type="submit"
-                       class="btn btn-sm btn-success p-2 shadow rounded">Order</button>
+                       class="btn btn-sm btn-success p-2 shadow rounded">Add to Cart</button>
                 </div>
             </div>
             </form>

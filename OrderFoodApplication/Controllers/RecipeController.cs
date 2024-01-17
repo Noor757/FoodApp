@@ -19,6 +19,7 @@ namespace OrderFoodApplication.Controllers
         private readonly TastyBitesDBContext context;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<RecipeController> _logger;
+        public static int Count = 0;
 
         public RecipeController(IHttpClientFactory httpClientFactory, ILogger<RecipeController> logger,
              UserManager<ApplicationUser> userManager, TastyBitesDBContext dBcontext)
@@ -88,11 +89,13 @@ namespace OrderFoodApplication.Controllers
         [Authorize]
         public IActionResult Order([FromForm]Order order)
         {
+            Count++;
             order.OrderDate = DateTime.Now;
             if (ModelState.IsValid)
             {            
                 context.Orders.Add(order);
                 context.SaveChanges();
+                ViewBag.CartCount = Count;
                 return RedirectToAction("Index", "Recipe");
             }
             return RedirectToAction("Order","Recipe", new {id=order.Id});

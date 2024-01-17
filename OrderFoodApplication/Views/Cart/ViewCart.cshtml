@@ -1,4 +1,4 @@
-﻿@model List<OrderFoodApplication.Models.Cart>
+﻿@model List<OrderFoodApplication.Models.Order>
 
 <h1>Your Cart</h1>
 
@@ -7,26 +7,38 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Publisher</th>
-                <th>Action</th> <!-- Add a new column for the Remove button -->
+                <th>Picture</th>
+                <th>Recipe Name</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+                <th>Order Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var cartItem in Model)
+            @foreach (var orderItem in Model)
             {
                 <tr>
-                    <td><img src="@cartItem.Image_url" alt="Recipe Image" style="max-width: 100px;" /></td>
-                    <td>@cartItem.Title</td>
-                    <td>@cartItem.Publisher</td>
+                    <td><img src="@orderItem.Image_url" alt="Recipe Image" style="max-width: 100px;" /></td>
+                    <td>@orderItem.RecipeName</td>
+                    <td>@orderItem.Address</td>
+                    <td>@orderItem.Price.ToString("C")</td>
+                    <td>@orderItem.Quantity</td>
+                    <td>@orderItem.TotalAmount.ToString("C")</td>
+                    <td>@orderItem.OrderDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
                     <td>
-                        <button class="btn btn-danger" onclick="removeCartItem('@cartItem.Id')">Remove</button>
+                        <button class="btn btn-danger" onclick="removeCartItem('@orderItem.Id')">Remove</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
+    <p>Total Price: @Model.Sum(orderItem => orderItem.TotalAmount).ToString("C")</p>
+
+    <button class="btn btn-success" onclick="confirmOrder()">Confirm Order</button>
 }
 else
 {
@@ -34,9 +46,8 @@ else
 }
 
 <script>
-    function removeCartItem(cartItemId) {
-        // Make an AJAX request to remove the item from the database
-        fetch('/Cart/RemoveCartFromList?Id=' + encodeURIComponent(cartItemId), {
+    function removeCartItem(orderItemId) {
+        fetch('/Cart/RemoveCartFromList?Id=' + encodeURIComponent(orderItemId), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -47,10 +58,12 @@ else
                     throw new Error('Network response was not ok');
                 }
 
-                // Reload the page after successful removal
                 location.reload();
             })
             .catch(error => console.error('Error removing item from cart:', error));
     }
-</script>
 
+    function confirmOrder() {
+        window.location.href = '/Cart/Confirm';
+    }
+</script>

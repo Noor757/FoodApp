@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OrderFoodApplication.ContextDBConfig;
+using OrderFoodApplication.Migrations;
 using OrderFoodApplication.Models;
 using OrderFoodApplication.Repository;
 
@@ -18,7 +19,7 @@ namespace OrderFoodApplication.Controllers
         private readonly string apiURL = "https://forkify-api.herokuapp.com/api/v2/recipes";
         private readonly string apiKey = "64092a23-9828-47cb-ba25-f0427a05e9d7";
         private readonly IHttpClientFactory _httpClientFactory;
-
+        
         public CartController(IData data, TastyBitesDBContext context, IHttpClientFactory factory)
         {
             this.data = data;
@@ -31,6 +32,8 @@ namespace OrderFoodApplication.Controllers
             return View();
         }
 
+
+        //Add an Item to the Cart
         [HttpPost]
         [HttpGet]
         public async Task<IActionResult> SaveCart(string recipeId)
@@ -44,6 +47,8 @@ namespace OrderFoodApplication.Controllers
 
             // Make an API call to fetch recipe details
             var recipeDetails = await GetRecipeDetailsAsync(recipeId);
+            Random random = new Random();
+            var price = Math.Round(random.Next(150, 500) / 5.0) * 5;
 
             if (recipeDetails != null)
             {
@@ -53,7 +58,8 @@ namespace OrderFoodApplication.Controllers
                     RecipeId = recipeId,
                     Image_url = recipeDetails.Image_url,
                     Publisher = recipeDetails.Publisher,
-                    Title = recipeDetails.Title
+                    Title = recipeDetails.Title,
+                    Price = price
                 };
 
                 if (ModelState.IsValid)
@@ -97,7 +103,7 @@ namespace OrderFoodApplication.Controllers
                 return Unauthorized();
             }
 
-            var cartItems = context.Carts.Where(c => c.UserId == user.Id).ToList();
+            var cartItems = context.Orders.Where(c => c.UserId == user.Id).ToList();
             return View(cartItems);
         }
 
@@ -107,10 +113,10 @@ namespace OrderFoodApplication.Controllers
         {
             if (!string.IsNullOrEmpty(Id))
             {
-                var cart = context.Carts.Find(int.Parse(Id));
+                var cart = context.Orders.Find(int.Parse(Id));
                 if (cart != null)
                 {
-                    context.Carts.Remove(cart);
+                    context.Orders.Remove(cart);
                     context.SaveChanges();
                     return Ok();
                 }
@@ -118,7 +124,11 @@ namespace OrderFoodApplication.Controllers
             return BadRequest();
         }
 
+        public IActionResult Confirm()
+        {
+            return View();
+        }
 
-
+        
     }
 }

@@ -130,3 +130,8 @@ header{
 .addToCartIcon.clicked i.fa-solid {
     display: inline;
 }
+
+.addToCartIcon:hover {
+    background-color: forestgreen !important;
+    color: white !important;
+}

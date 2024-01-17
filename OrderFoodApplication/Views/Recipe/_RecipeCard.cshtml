@@ -12,14 +12,13 @@
                     <div class="d-flex flex-wrap justify-content-between">
                         <a href="/Recipe/Order?id=@recipe.Id" 
                         class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
-                        <form id="addToCartForm_R" action="/Cart/SaveCart" method="post">
+                        <!--<form id="addToCartForm_R" action="/Cart/SaveCart" method="post">
                             <input type="hidden" name="recipeId" id="recipeId" value="@recipe.Id" />
                             <input type="hidden" name="returnUrl" id="returnUrl_R" value="/" />
                             <button type="submit" class="addToCartIcon_R" style="outline: none; border: none; background: white" onclick="redirectToLogin()">
                                 <i class="fa-regular fa-square-plus fs-2"></i>
                             </button>
-                        </form>
-                        <!--<span class="addToCartIcon"><i class="fa-regular fa-cart-plus fs-2"></i></span>-->
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -27,3 +26,12 @@
     </div>
 }
 
+
+
+<script>
+    function redirectToLogin() {
+        var returnUrlInput = document.getElementById('returnUrl_R');
+        returnUrlInput.value = window.location.pathname;
+        document.getElementById('addToCartForm_R').submit();
+    }
+</script>
