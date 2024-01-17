@@ -1,0 +1,56 @@
+﻿@model List<OrderFoodApplication.Models.Cart>
+
+<h1>Your Cart</h1>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Action</th> <!-- Add a new column for the Remove button -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cartItem in Model)
+            {
+                <tr>
+                    <td><img src="@cartItem.Image_url" alt="Recipe Image" style="max-width: 100px;" /></td>
+                    <td>@cartItem.Title</td>
+                    <td>@cartItem.Publisher</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="removeCartItem('@cartItem.Id')">Remove</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}
+
+<script>
+    function removeCartItem(cartItemId) {
+        // Make an AJAX request to remove the item from the database
+        fetch('/Cart/RemoveCartFromList?Id=' + encodeURIComponent(cartItemId), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                // Reload the page after successful removal
+                location.reload();
+            })
+            .catch(error => console.error('Error removing item from cart:', error));
+    }
+</script>
+

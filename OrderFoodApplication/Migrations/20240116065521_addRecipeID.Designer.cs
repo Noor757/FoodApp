@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderFoodApplication.ContextDBConfig;
 
@@ -11,9 +12,10 @@ using OrderFoodApplication.ContextDBConfig;
 namespace OrderFoodApplication.Migrations
 {
     [DbContext(typeof(TastyBitesDBContext))]
-    partial class TastyBitesDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240116065521_addRecipeID")]
+    partial class addRecipeID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

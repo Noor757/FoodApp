@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using OrderFoodApplication.ContextDBConfig;
 using OrderFoodApplication.Controllers;
 using OrderFoodApplication.Models;
+using OrderFoodApplication.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 var dbconnection = builder.Configuration.GetConnectionString("dbConnection");
@@ -23,6 +24,8 @@ options.UseSqlServer(dbconnection));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<TastyBitesDBContext>();
+
+builder.Services.AddTransient<IData, Data>();
 
 var app = builder.Build();
 

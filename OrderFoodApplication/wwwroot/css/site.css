@@ -29,7 +29,7 @@ header{
     z-index:1000;
 }
 .dishCard{
-    height:280px;
+    height:330px;
 }
 
 .fa-instagram{
@@ -107,4 +107,26 @@ header{
 }
 #totalAmout:focus, #price:focus{
     outline:none;
+}
+.addToCartIcon{
+    cursor:pointer;
+}
+.bg-black{
+    background-color: #0d243d;
+}
+.bg-black:hover {
+    background-color: forestgreen !important;
+}
+
+.fa-solid {
+    color: forestgreen;
+
+}
+
+.addToCartIcon.clicked i.fa-regular {
+    display: none;
+}
+
+.addToCartIcon.clicked i.fa-solid {
+    display: inline;
 }

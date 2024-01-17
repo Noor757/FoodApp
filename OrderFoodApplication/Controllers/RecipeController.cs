@@ -127,7 +127,7 @@ namespace OrderFoodApplication.Controllers
         }
 
         //end
-        private async Task<OrderRecipeDetails> GetRecipeDetailsAsync(string recipeId)
+        public async Task<OrderRecipeDetails> GetRecipeDetailsAsync(string recipeId)
         {
             Console.WriteLine($"GetRecipeDetailsAsync accessed for recipeId:", recipeId);
             try

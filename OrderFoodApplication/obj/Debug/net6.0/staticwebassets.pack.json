@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\js\\jquery-ui.min.js"
     },
     {
+      "Id": "F:\\EAD_SemesterProject\\OrderFoodApplication\\OrderFoodApplication\\wwwroot\\js\\recipe.js",
+      "PackagePath": "staticwebassets\\js\\recipe.js"
+    },
+    {
       "Id": "F:\\EAD_SemesterProject\\OrderFoodApplication\\OrderFoodApplication\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

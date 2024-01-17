@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@{
+    string returnUrl = Context.Request.Path;
+}
 
 <div class="row shadow rounded mx-5">
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-3">
@@ -55,8 +58,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Pizza</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcd09" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Pizza</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bcd09" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bcd09" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="button" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bcd09">
+                                        <i class="fa-regular fa-square-plus fs-2"></i>
+                                    </button>
+                                </form>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -64,8 +77,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/gelatin_poke_cake2d07.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Cake</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf3d" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Cake</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf3d" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bcf3d" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="submit" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bcf3d">
+                                        <i class="fa-regular fa-square-plus fs-2"></i>
+                                    </button>
+                                </form>                                
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -73,8 +96,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/lasagna266x200c47220b0.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Lasagna</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcb3f" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Lasagna</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bcb3f" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bcb3f" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="submit" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bcb3f">
+                                        <i class="fa-regular fa-square-plus fs-2"></i>
+                                    </button>
+                                </form>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -84,8 +117,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/lambkebabs_2214_16x991b5.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Kebab</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf71" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Kebab</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf71" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bcf71" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="submit" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bcf71">
+                                        <i class="fa-regular fa-square-plus fs-2"></i>
+                                    </button>
+                                </form>                                
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -93,8 +136,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/3309_MEDIUMc520.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Pasta</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf01" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Pasta</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bcf01" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bcf01" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="submit" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bcf01">
+                                        <i class="fa-regular fa-square-plus fs-2"></i>
+                                    </button>
+                                </form>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -102,8 +155,18 @@
                     <div class=" shadow-rounded card dishCard p-2">
                         <img class="card-img-top h-50" src="http://forkify-api.herokuapp.com/images/3190843697_88ceb2c27f8217.jpg" alt="dish" />
                         <div class="card-body">
-                            <p class="card-title fw-bold fs-6 text-dark">Steak</p>
-                            <a href="/Recipe/Order?id=5ed6604591c37cdc054bccd6" class="btn btn-sm btn-primary p-2">Order</a>
+                            <h5 class="card-title text-dark">Steak</h5>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <a href="/Recipe/Order?id=5ed6604591c37cdc054bccd6" class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
+                                <form id="addToCartForm" action="/Cart/SaveCart" method="post">
+                                    <input type="hidden" name="recipeId" id="recipeId" value="5ed6604591c37cdc054bccd6" />
+                                    <input type="hidden" name="returnUrl" id="returnUrl" value="/" />
+                                    <button type="submit" class="addToCartIcon" style="outline: none; border: none; background: white"
+                                            onclick="redirectToLogin()" data-recipeId="5ed6604591c37cdc054bccd6">
+                                        <i class="fa-regular fa-square-plus fs-2" ></i>
+                                    </button>
+                                </form>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -111,4 +174,14 @@
         </div>
     </div>
 </div>
-    
+
+
+<script>
+
+    function redirectToLogin() {
+        var returnUrlInput = document.getElementById('returnUrl');
+        returnUrlInput.value = window.location.pathname;
+        document.getElementById('addToCartForm').submit();
+    }
+</script>
+
